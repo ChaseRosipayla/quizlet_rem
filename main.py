@@ -26,6 +26,7 @@ def parse_page(results):
     suitable_items = data.get('studiableItems')
     return(suitable_items)
 link = input("Enter quizlet link:   ")
+mode = input("Choose a mode: [>>,<>,<<]")
 results = (get_results(url=link))
 suitable_items = parse_page(results=results)
 for n in range(len(suitable_items)):
@@ -34,4 +35,4 @@ for n in range(len(suitable_items)):
     def_side = card_sides[1].get('media')
     question = (question_side[0].get('plainText'))
     answer = (def_side[0].get('plainText'))
-    print(Fore.RESET,f"{question}>>{answer}")
+    print(Fore.RESET,f"{question}{mode}{answer}")
